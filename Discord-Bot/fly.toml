@@ -1,0 +1,25 @@
+# Fly.io config for the DexterAuth Discord bot.
+# Deploy FROM the Discord-Bot/ folder:  fly deploy
+app = 'dexterauth-bot'
+primary_region = 'sin'
+
+[build]
+  dockerfile = 'Dockerfile'
+
+[processes]
+  app = 'node dist/index.js'
+
+# No public services: the bot only makes OUTBOUND connections
+# (Discord gateway + your backend). No ports to expose.
+# Health endpoint (port 3002) stays internal.
+
+[env]
+  AUTH_API_URL = 'https://dexterauth.onrender.com/api/v1/dev'
+
+# Optional persistence for /link mappings (data/users.json).
+# Without a volume, links are forgotten on each redeploy (users just /link again).
+# To enable:  fly volumes create dexter_data --size 1 --region sin
+# Then uncomment:
+# [[mounts]]
+#   source = 'dexter_data'
+#   destination = '/app/data'

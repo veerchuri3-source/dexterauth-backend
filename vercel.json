@@ -1,0 +1,6 @@
+{
+  "buildCommand": "cd \"onyx auth frontend\" && npm install && npm run build",
+  "outputDirectory": "onyx auth frontend/dist",
+  "framework": "vite",
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+}

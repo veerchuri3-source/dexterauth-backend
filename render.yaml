@@ -1,0 +1,35 @@
+services:
+  # DexterAuth Backend API Service
+  - type: web
+    name: dexterauth-backend
+    env: node
+    rootDir: onyx auth-backend
+    buildCommand: npm install
+    startCommand: node src/index.js
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: DATABASE_URL
+        value: postgresql://neondb_owner:npg_W8jbMAHV3enY@ep-quiet-darkness-ax6tarom.c-4.us-east-2.aws.neon.tech/neondb?sslmode=require
+      - key: JWT_SECRET
+        value: f3bd32702f374ffb126f7e2b67396ff6d30aa7e28515f8c39b80ee54561ef23cf435efa7b4f1b5afb2d3edad8dacad61
+      - key: JWT_EXPIRES_IN
+        value: 7d
+      - key: CORS_ORIGINS
+        value: "*"
+      - key: TRUST_PROXY
+        value: 1
+      - key: PUBLIC_BASE_URL
+        value: https://dexterauth.onrender.com
+      - key: FRONTEND_URL
+        value: https://dexterauth.vercel.app
+      - key: RAZORPAY_KEY_ID
+        value: rzp_test_TS6HP5yX5kS3DP
+      - key: RAZORPAY_KEY_SECRET
+        value: I7cdj8cXBXb6rzktlPPsoSFJ
+      - key: DISCORD_REDIRECT_URI
+        value: https://dexterauth.onrender.com/api/v1/dev/auth/discord/callback

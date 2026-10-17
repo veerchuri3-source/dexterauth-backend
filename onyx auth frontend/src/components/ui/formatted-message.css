@@ -1,0 +1,180 @@
+/* Markdown Content Styles - Discord-like */
+
+.markdown-content {
+    word-break: break-word;
+    /* Ensure long words don't overflow */
+    line-height: 1.375rem;
+}
+
+.markdown-content p {
+    margin: 0;
+    display: inline;
+    /* Discord text flow */
+}
+
+/* Discord text flow: paragraphs break, but act somewhat inline */
+.markdown-content p:not(:last-child)::after {
+    content: "\A";
+    /* Newline */
+    white-space: pre;
+}
+
+/* Headings */
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3 {
+    font-weight: 700;
+    margin: 16px 0 8px;
+    line-height: 1.25;
+}
+
+.markdown-content h1 {
+    font-size: 1.5em;
+}
+
+.markdown-content h2 {
+    font-size: 1.25em;
+}
+
+.markdown-content h3 {
+    font-size: 1.1em;
+}
+
+/* Emphasis */
+.markdown-content strong {
+    font-weight: 700;
+}
+
+.markdown-content em {
+    font-style: italic;
+}
+
+.markdown-content u {
+    text-decoration: underline;
+}
+
+.markdown-content s {
+    text-decoration: line-through;
+}
+
+/* Inline Code */
+.markdown-content code {
+    font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+    font-size: 0.85em;
+    background-color: #2f3136;
+    /* Discord dark background */
+    border-radius: 3px;
+    padding: 0.2em;
+    white-space: pre-wrap;
+    /* Only inline code gets this. Block code has separate styling */
+}
+
+/* Code Block Wrapper */
+.code-block-wrapper {
+    background-color: #2f3136;
+    border: 1px solid #202225;
+    border-radius: 4px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.code-block-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #202225;
+    padding: 4px 8px;
+    font-family: sans-serif;
+    font-size: 0.75rem;
+    color: #b9bbbe;
+    border-bottom: 1px solid #2f3136;
+}
+
+.language-label {
+    font-weight: 600;
+    text-transform: lowercase;
+}
+
+.copy-btn {
+    background: transparent;
+    border: none;
+    color: #b9bbbe;
+    cursor: pointer;
+    font-size: 0.75rem;
+    padding: 2px 4px;
+    border-radius: 3px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.copy-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.code-block-wrapper pre {
+    margin: 0;
+    padding: 1em;
+    overflow-x: auto;
+    color: #dcddde;
+    font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+    font-size: 0.875rem;
+    line-height: 1.125rem;
+}
+
+/* Override .markdown-content code for inside pre */
+.code-block-wrapper pre code {
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+    white-space: pre;
+    display: block;
+}
+
+
+/* Blockquote */
+.markdown-content blockquote {
+    display: flex;
+    margin: 4px 0 4px 0;
+    padding: 0;
+}
+
+.markdown-content blockquote::before {
+    content: "";
+    display: block;
+    width: 4px;
+    background-color: #4f545c;
+    border-radius: 4px;
+    margin-right: 12px;
+}
+
+.markdown-content blockquote p {
+    color: #dcddde;
+    /* Slightly dimmer text */
+}
+
+/* Spoilers */
+.spoiler {
+    background-color: #202225;
+    color: transparent;
+    border-radius: 3px;
+    padding: 0 2px;
+    cursor: pointer;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+            user-select: none;
+    transition: background-color 0.1s;
+}
+
+.spoiler:hover {
+    background-color: #292b2f;
+}
+
+.spoiler.revealed {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: inherit;
+    -webkit-user-select: text;
+       -moz-user-select: text;
+            user-select: text;
+}

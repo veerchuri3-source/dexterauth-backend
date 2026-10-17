@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.env
+*.log
+.DS_Store
+data/
+# archives often bundle .env / data — never commit them
+*.rar
+*.zip

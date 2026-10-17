@@ -1,0 +1,15 @@
+node_modules/
+dist/
+.env
+.env.production
+.env.local
+uploads/
+authlx-backend/uploads/
+authlx-local/dist/
+"onyx auth-backend/uploads/"
+"onyx auth frontend/dist/"
+Discord-Bot/dist/
+Discord-Bot/data/
+*.log
+*.rar
+.DS_Store
